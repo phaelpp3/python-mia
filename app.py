@@ -2,6 +2,8 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
-def home():
-    return {"msg": "Python funcionando"}
+@app.post("/mundo")
+def processar(data: dict):
+    texto = data.get("texto", "")
+    return {
+        "original": texto
